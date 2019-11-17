@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Print | Jacksta Application</title>
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body>
+<h1 class="text-center">Welcome to <span th:text="${appName}">Our App</span></h1>
+<div class="container">
+    <form action="#" th:action="@{/print}" th:object="${print}" method="post">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">File</th>
+                <th scope="col">File Size</th>
+                <th scope="col">last Updated</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="print : ${print}">
+                <td th:text="${print.fileName}"></td>
+                <td th:text="${print.fileSize}"></td>
+                <td th:text="${print.lastUpdated}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="row mr-3">
+            <a href="#" class="btn btn-primary btn-lg mr-3" role="button">Print Advices</a>
+            <a href="#" class="btn btn-primary btn-lg" role="button">View Advices</a>
+
+        </div>
+    </form>
+
+
+</div>
+
+
+<script src="webjars/jquery/3.4.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
